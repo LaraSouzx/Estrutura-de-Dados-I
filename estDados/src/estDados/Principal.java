@@ -6,22 +6,165 @@ public class Principal {
 		// Tipo objeto
 
 		Pilha pilha = new Pilha();
-
+		Pilha p1 = new Pilha();
+		Pilha p2 = new Pilha();
 		pilha.push(15);
 
 		pilha.push(12);
 
 		pilha.push(25);
-
+		
 		printPilha(pilha);
-
+		
 		printPilhaInvertida(pilha);
-
+		
 		buscarPilha(pilha, 15);
-
+		
+		Pilha pPar = pilhaPar(p1);
+		printPilha(pPar);
+		
+		boolean resultado = compararPilha(p1, p2);
+		System.out.println(resultado);
+		verificarElemento(p1, p2);
+		//Pilha p3 = fusaoPilha(p1, p2);
+		//printPilha(p3);
 		removerValor(pilha, 12);
-
 	}
+	
+	
+	Pilha pilhaPar(Pilha p1){
+		//verifica se há numeros pares na pilha
+		//caso tenha será retornado em uma nova pilha somente
+		//os elementos pares.
+
+		Pilha p2 = new Pilha();
+
+		Pilha p1Aux = new Pilha();
+
+		while(p1.isEmpty()==false){
+
+		int x = p1.pop();
+
+		p1Aux.push(x);
+
+		if(x%2 == 0){
+
+		p2.push(x);
+
+		}
+
+		}
+
+		while(p1Aux.isEmpty() == false) {
+
+		int v1Aux = p1Aux.pop();
+
+		p1.push(v1Aux);
+
+		}
+
+		return p2;
+
+		}
+	
+	
+	int verificarElemento(Pilha p1, Pilha p2) {
+		//verifica se na em duas pilhas ha elementos iguais
+		//caso tenha, é retornado a quantidade elementos iguais
+		Pilha p1Aux = new Pilha();
+
+		Pilha p2Aux = new Pilha();
+
+		int i=0, x, y;
+
+		while(p1.isEmpty()==false && p2.isEmpty()==false) {
+
+			x = p1.pop();
+
+			y = p2.pop();
+
+			p1Aux.push(x);
+
+			p2Aux.push(y);
+
+			if(x == y){
+				i++;
+			}
+		}
+
+		while(p1Aux.isEmpty() == false) {
+
+			int v1Aux = p1Aux.pop();
+
+			p1.push(v1Aux);
+
+		}
+
+		while(p2Aux.isEmpty() == false) {
+
+			int v2Aux = p2Aux.pop();
+
+			p2.push(v2Aux);
+
+		}
+
+			return i;
+
+		}
+	
+	
+	boolean compararPilha(Pilha p1, Pilha p2){
+			//verifica se duas pilhas sao iguais
+		boolean iguais = false;
+
+
+		Pilha p1Aux = new Pilha();
+
+		Pilha p2Aux = new Pilha();
+
+		while(p1.isEmpty() == false && p2.top() == p1.top()) {
+
+			int x = p1.pop();
+
+			int y = p2.pop();
+
+			p1Aux.push(x);
+
+			p2Aux.push(y);
+
+		}
+
+
+		if(p1.isEmpty() == true && p2.isEmpty() == true) {
+
+			iguais = true;
+
+		}else {
+
+			iguais = false;
+
+		}
+
+
+		while(p1Aux.isEmpty() == false) {
+
+			int v1Aux = p1Aux.pop();
+
+			p1.push(v1Aux);
+
+		}
+
+		while(p2Aux.isEmpty() == false) {
+
+			int v2Aux = p2Aux.pop();
+
+			p2.push(v2Aux);
+
+		}
+
+			return iguais;
+
+		}
 
 	void printPilha(Pilha pilha) {
 
