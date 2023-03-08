@@ -1,6 +1,6 @@
 # Estrutura-de-Dados-I
  Projeto do 3º semestre de Ciêncioa da Computação
-Este projeto será desevolvidado ao longo do semestre, nesta primeiro commit temos a classe Principal<br>
+Este projeto será desevolvidado ao longo do semestre, neste primeiro commit temos a classe Principal<br>
 com algums métodos:<br>
    - Print pilha;
    - Print pilha invertida;
