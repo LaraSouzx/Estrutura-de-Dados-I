@@ -26,11 +26,147 @@ public class Principal {
 		boolean resultado = compararPilha(p1, p2);
 		System.out.println(resultado);
 		verificarElemento(p1, p2);
-		//Pilha p3 = fusaoPilha(p1, p2);
-		//printPilha(p3);
-		removerValor(pilha, 12);
+		Pilha p3 = fusaoPilha(p1, p2);
+		printPilha(p3);
+		
+		Fila fila = new Fila();
+		Fila f1 = new Fila();
+		Fila f2 = new Fila();
+		fila.enqueue(12);
+		fila.enqueue(17);
+		fila.enqueue(19);
+		fila.enqueue(23);
+		fila.enqueue(25);
+		
+		f1.enqueue(15);
+		f1.enqueue(19);
+		f1.enqueue(21);
+		f1.enqueue(22);
+		
+		f2.enqueue(21);
+		f2.enqueue(32);
+		f2.enqueue(18);
+		f2.enqueue(34);
+
+		printFila(fila);
+		buscarFila(fila, 17);
+		inverterFila(fila);
+		Fila f3 = new Fila();
+		f3 = interpolarFilas(f1, f2);
+		printFila(f3);
+		
 	}
 	
+	void misturarFila(Fila f1) {
+		int x, y;
+		int tam = f1.size();
+		for(int i = 0; i< tam/2; i++) {
+			x = f1.dequeue();
+			y = f1.dequeue();
+			f1.enqueue(y);
+			f1.enqueue(x);
+			System.out.print(y+" - " + x+" - ");
+		}
+	}
+	void misturarPilha(Pilha p1, Pilha p2, Pilha p3) {
+		Pilha pAux = new Pilha();
+		p3.push(16);
+		p3.push(17);
+		p3.push(18);
+		p3.push(19);
+		while(p1.isEmpty() == false) {
+			int i, tam1;
+			i = p1.pop();
+			pAux.push(i);
+			if(i % 2 == 0) {
+				p2.push(i);
+			}else{
+				p2.push(i);
+			}
+		}
+		while(p3.isEmpty()==false) {
+			int y;
+			y = p3.pop();
+			pAux.push(y);
+			if(y % 2 == 0) {
+				p2.push(y);
+				System.out.println("misturou a pilha");
+			}
+		}
+	}
+	void removerValor(Fila fila, int valor) {
+		Fila filaAux = new Fila();
+		int valorAux;
+		while(fila.isEmpty()==false) {
+			valorAux = fila.dequeue();
+			if(valor != valorAux) {
+				filaAux.enqueue(valorAux);
+			}
+		}
+		while(fila.isEmpty() == false) {
+			valorAux = filaAux.dequeue();
+			fila.enqueue(valorAux);
+		}
+	}
+	public Fila interpolarFilas(Fila f1, Fila f2) {
+		Fila f3 = new Fila();
+		int tam1 = f1.size();
+		int tam2 = f2.size();
+		for(int i = 0; i < tam1; i++) {
+			int x = f1.dequeue();
+			f3.enqueue(x);
+			int y = f2.dequeue();
+			f3.enqueue(y);
+		}
+		return f3;
+	}
+	
+	public void inverterFila(Fila fila) {
+		Pilha pAux = new Pilha();
+		int x = fila.size();
+		for(int i = 0; i < x; i++) {
+			x = fila.dequeue();
+			pAux.push(x);
+		}
+		
+		while(pAux.isEmpty()==false){
+			int y = pAux.pop();
+			fila.enqueue(y);
+		}
+	}
+	void printFila(Fila fila) {
+
+		//desinfileira, imprime, enfileira de volta
+
+		for(int i = 0; i < fila.size(); i++) {
+
+		int x = fila.dequeue();
+
+		System.out.println(x);
+
+		fila.enqueue(x);
+
+		}
+
+		System.out.println("--------------------");
+
+		}
+	
+	
+	boolean buscarFila(Fila fila, int valor){
+		//verifica se determinado valor existe na fila, retorna true ou false
+		boolean resultado = false;
+		for(int i = 0; i < fila.size(); i++) {
+			int x = fila.dequeue();
+			fila.enqueue(x);
+			if(x == valor) {
+				resultado = true;
+			}else {
+				resultado = false;
+			}
+		}
+			return resultado;
+	}
 	
 	Pilha pilhaPar(Pilha p1){
 		//verifica se há numeros pares na pilha
@@ -297,19 +433,6 @@ void removerValor(Pilha pilha, int valor) {
 		pilha.push(vAux);
 		}
 }
-
-
-void duplicarValor(Pilha pilha, int valor) {
-
-
-}
-
-
-void subistituirValor(Pilha pilha, int v1, int v2) {
-
-
-}
-
 
 
 public static void main(String[] args) {
