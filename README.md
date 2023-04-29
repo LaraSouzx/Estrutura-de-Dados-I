@@ -1,11 +1,5 @@
 # Estrutura-de-Dados-I
- Projeto do 3º semestre de Ciêncioa da Computação
-Este projeto será desevolvidado ao longo do semestre, neste primeiro commit temos a classe Principal<br>
-com algums métodos:<br>
-   - Print pilha;
-   - Print pilha invertida;
-   - Buscar pilha;
-   -Remover item de pilha;
-   - Pilha par;
-   - Verificar se duas pilhas tem itens iguais;
-   - Verificar se duas pilhas são iguais.
+ Projeto do 3º semestre de Ciência da Computação<br>
+ Este repositório conta com método de Pilha, Fila, Lista Simplismente Encadeada(última att  <br>28/04/23)
+
+
