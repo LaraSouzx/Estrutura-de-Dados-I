@@ -8,20 +8,21 @@ public class LSE {
 		head = new Node();
 		head.next = null;
 	}
+	
 	void print() {
-		Node aux = head;
-		while(aux.next != null) {
-			aux = aux.next;
+		Node aux = head;//cria um nó auxiliar
+		while(aux.next != null) {//enquanto o próximo nó auxiliar não for nulo
+			aux = aux.next;      //aux percorre a lista
 			System.out.println(aux.info);
 		}
 		
 	}
 	
 	void inserirInicio(int valor) {
-		Node novo = new Node();
-		novo.info = valor;
-		novo.next = head.next;
-		head.next = novo;
+		Node novo = new Node();    //cria um novo nó onde é inserido o valor
+		novo.info = valor;         
+		novo.next = head.next;    //o proximo nó depois do novo, recebe o proximo nó depois da cabeça
+		head.next = novo;         //o proximo nó depois da cabeca recebe o novo
 	}
 	
 	
@@ -30,11 +31,11 @@ public class LSE {
 
 		Node novo = new Node();
 		novo.info = valor;
-		novo.next = null;
+		novo.next = null;      //o proximo nó depois do novo é nulo
 		
 		Node aux = head;
 		
-		for(int i = 0; i < pos; i++) {
+		for(int i = 0; i < pos; i++) { //percorre a lista 
 			aux = aux.next;
 			
 		}
@@ -45,7 +46,7 @@ public class LSE {
 	void inserirFinal(int valor) {
 		Node novo = new Node();
 		novo.info = valor;
-		novo.next = null;
+		novo.next = null; 
 
 		//Referência auxiliar para percorrer a lista
 		Node aux = head;
@@ -53,10 +54,10 @@ public class LSE {
 		//Percorre a lista procurando o último node.
 		//Enquanto o aux não for o último, avanço na lista
 		while(aux.next != null) {
-			aux = aux.next;
+			aux = aux.next;      
 		}
 		
-		aux.next = novo;
+		aux.next = novo; 
 	}
 	
 	
@@ -75,18 +76,27 @@ public class LSE {
 	}
 	
 	void removerInicio() {
-		/*if(head == null) {
-			return;
-		}
-		head = head.next;*/
+		head = head.next;
 	}
 	
 	void removerFinal() {
-		
+		Node aux = head;
+		while(aux.next.next != null) {
+			aux = aux.next;
+		}
+		aux.next = null;
 	}
 	
 	void removerPos(int pos) {
-		
+		Node aux = new Node();
+		aux = head;
+		Node remove = new Node();
+		for(int i = 0; i < pos;  i++) {
+			aux = aux.next;
+		}
+		remove = aux.next;
+		aux.next = remove.next;
+		 remove.next = null;
 	}
 	boolean isEmpty() {
 		if(head.next == null) return true;
