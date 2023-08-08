@@ -11,14 +11,14 @@ A classe pilha conta com as seguintes funções:<br>
    - VerificaElementosIguais();
    - ComparaPilhasIguais();
    - PrintPilhaInvertida();
-<br>
+
 A classe Fila contas comas seguintes funções:
   - Remover();
   - InterpolarFilas();
   - InverterFila();
   - Print();
   - Buscar();
-<br>
+
 A classe LSE(lista simplismente encadeada) conta com as seguintes funções:
   - RemoverInicio();
   - RemoverFinal();
@@ -28,7 +28,7 @@ A classe LSE(lista simplismente encadeada) conta com as seguintes funções:
   - InserirPosicao();
   - Print();
   - Buscar();
-<br>
+
 A classe LDE(lista simplismente encadeada) conta com as seguintes funções:
   - RemoverInicio();
   - RemoverFinal();
